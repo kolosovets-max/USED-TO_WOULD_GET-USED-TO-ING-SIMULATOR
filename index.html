@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Used to · would · be used to — practice</title>
+<meta name="description" content="Interactive grammar practice on past habits and familiar routines: used to, would, be used to, get used to. Four modes, instant feedback, no sign-in.">
+<meta name="theme-color" content="#1f5a56">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Past habits: used to, would, be used to">
+<meta property="og:description" content="Four practice modes: pick the form, spot the mistake, complete the story, choose between habit and familiarity.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=zodiak@400,700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23244d4a'/%3E%3Cpath d='M9 10v7a7 7 0 0 0 14 0v-7' stroke='%23f3efe6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+  --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+  --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+  --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+  --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
+  --radius:14px;
+  --font-body:'General Sans',system-ui,sans-serif;
+  --font-display:'Zodiak','General Sans',Georgia,serif;
+}
+:root,[data-theme="light"]{
+  --bg:#f4f1e9; --surface:#fbf9f4; --surface-2:#efeade; --border:#ddd6c6;
+  --text:#23201a; --muted:#736d60; --faint:#a9a293;
+  --primary:#1f5a56; --primary-soft:#d8e5e1;
+  --good:#2f6b3d; --good-soft:#dbeadd;
+  --bad:#9a3520; --bad-soft:#f2dcd5;
+  --ink:#2d2a22;
+}
+[data-theme="dark"]{
+  --bg:#16150f; --surface:#1e1d16; --surface-2:#262419; --border:#3a382c;
+  --text:#f1ede2; --muted:#a8a293; --faint:#6f6a5c;
+  --primary:#6fbdb0; --primary-soft:#23423d;
+  --good:#8fd39c; --good-soft:#1f3524;
+  --bad:#e79b83; --bad-soft:#3c221a;
+  --ink:#f1ede2;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-body);font-size:var(--text-base);line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 1px 1px,rgba(120,110,90,.09) 1px,transparent 0);
+  background-size:22px 22px;
+}
+.wrap{max-width:760px;margin:0 auto;padding:var(--space-6) var(--space-4) var(--space-16)}
+header{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6)}
+.logo{display:flex;align-items:center;gap:var(--space-3);color:var(--primary)}
+.logo span{font-family:var(--font-display);font-weight:700;font-size:var(--text-base);color:var(--text);letter-spacing:-.01em}
+.spacer{flex:1}
+button{font-family:inherit;font-size:var(--text-sm);cursor:pointer}
+.icon-btn{background:var(--surface);border:1px solid var(--border);color:var(--muted);
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;transition:.18s}
+h1{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.15;margin:0 0 var(--space-3);letter-spacing:-.02em}
+.lede{color:var(--muted);font-size:var(--text-sm);margin:0 0 var(--space-6);max-width:56ch}
+
+.tabs{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-5)}
+.tab{background:var(--surface);border:1px solid var(--border);color:var(--muted);
+  padding:var(--space-3) var(--space-4);border-radius:999px;transition:.18s}
+.tab[aria-selected="true"]{background:var(--primary);border-color:var(--primary);color:#fbf9f4;font-weight:500}
+[data-theme="dark"] .tab[aria-selected="true"]{color:#13221f}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:var(--space-6);box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.meta{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-xs);color:var(--faint);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-4)}
+.bar{flex:1;height:4px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--primary);width:0;transition:width .35s cubic-bezier(.2,.7,.3,1)}
+
+.sentence{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.5;margin:0 0 var(--space-6)}
+.blank{display:inline-block;min-width:4.5em;border-bottom:2px dashed var(--faint);text-align:center;color:var(--primary)}
+.blank.filled{border-bottom-style:solid;font-weight:700}
+.hintline{font-size:var(--text-xs);color:var(--faint);margin:calc(var(--space-4) * -1) 0 var(--space-5)}
+.chip{display:inline-block;font-size:var(--text-xs);letter-spacing:.04em;color:var(--primary);
+  background:var(--primary-soft);border-radius:99px;padding:var(--space-1) var(--space-3);margin-bottom:var(--space-4)}
+
+.opts{display:grid;gap:var(--space-3)}
+.opt{display:flex;align-items:center;gap:var(--space-3);text-align:left;width:100%;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text);
+  padding:var(--space-4);border-radius:12px;font-size:var(--text-base);transition:.15s}
+.opt:disabled{cursor:default}
+.opt .k{font-size:var(--text-xs);color:var(--faint);border:1px solid var(--border);border-radius:6px;
+  width:22px;height:22px;display:grid;place-items:center;flex:none}
+.opt.right{background:var(--good-soft);border-color:var(--good);color:var(--good);font-weight:600}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+
+.feedback{margin-top:var(--space-5);padding:var(--space-4);border-radius:12px;font-size:var(--text-sm);
+  border-left:3px solid var(--primary);background:var(--primary-soft);color:var(--ink)}
+.feedback b{display:block;margin-bottom:var(--space-1);font-size:var(--text-xs);
+  text-transform:uppercase;letter-spacing:.08em}
+.feedback.ok{background:var(--good-soft);border-color:var(--good)}
+.feedback.no{background:var(--bad-soft);border-color:var(--bad)}
+
+.row{display:flex;gap:var(--space-3);align-items:center;margin-top:var(--space-5);flex-wrap:wrap}
+.primary{background:var(--primary);color:#fbf9f4;border:none;padding:var(--space-3) var(--space-6);
+  border-radius:10px;font-weight:500;transition:.18s}
+[data-theme="dark"] .primary{color:#13221f}
+.ghost{background:none;border:1px solid var(--border);color:var(--muted);
+  padding:var(--space-3) var(--space-5);border-radius:10px}
+
+.score{display:flex;flex-wrap:wrap;gap:var(--space-3) var(--space-6);margin-top:var(--space-6);
+  font-size:var(--text-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.score b{display:block;font-family:var(--font-display);font-size:var(--text-lg);color:var(--text);letter-spacing:0}
+
+.result{text-align:center;padding:var(--space-8) var(--space-4)}
+.result .big{font-family:var(--font-display);font-size:var(--text-xl);margin:0 0 var(--space-2)}
+.result p{color:var(--muted);font-size:var(--text-sm);margin:0 auto var(--space-6);max-width:44ch}
+
+details.theory{margin-top:var(--space-8);background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:var(--space-4) var(--space-5)}
+details.theory summary{cursor:pointer;font-weight:500;font-size:var(--text-sm);color:var(--primary);list-style:none}
+details.theory summary::-webkit-details-marker{display:none}
+details.theory summary::before{content:"＋ ";color:var(--faint)}
+details.theory[open] summary::before{content:"− "}
+.theory-grid{display:grid;gap:var(--space-4);margin-top:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+@media(max-width:560px){.theory-grid{grid-template-columns:1fr}}
+.tbox{background:var(--surface-2);border-radius:12px;padding:var(--space-4)}
+.tbox h3{font-family:var(--font-display);font-size:var(--text-base);margin:0 0 var(--space-2)}
+.tbox ul{margin:0;padding-left:1.1em;font-size:var(--text-sm);color:var(--muted)}
+.tbox li{margin-bottom:var(--space-1)}
+.tbox em{color:var(--text);font-style:italic}
+/* --- touch, keyboard and small screens --- */
+@media (hover:hover){
+  .tab:hover{color:var(--text)}
+  .icon-btn:hover{color:var(--primary);border-color:var(--primary)}
+  .opt:hover:not(:disabled){border-color:var(--primary);transform:translateY(-1px)}
+  .primary:hover{filter:brightness(1.08)}
+  .ghost:hover{color:var(--text);border-color:var(--muted)}
+}
+@media (pointer:coarse),(max-width:700px){
+  .tab{padding:var(--space-3) var(--space-5);min-height:44px;display:inline-flex;align-items:center}
+  .icon-btn{width:44px;height:44px}
+  .primary,.ghost{padding-top:var(--space-4);padding-bottom:var(--space-4)}
+  .opt{padding:var(--space-4) var(--space-4)}
+}
+body{-webkit-tap-highlight-color:rgba(31,90,86,.12)}
+.sentence,.opt,.feedback,.lede,.tbox li{overflow-wrap:break-word}
+.blank{max-width:100%}
+button:focus-visible,summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+footer{margin-top:var(--space-10);font-size:var(--text-xs);color:var(--faint);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-label="Trainer logo">
+        <rect x="1" y="1" width="30" height="30" rx="8" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M9 9v8a7 7 0 0 0 14 0V9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>used to <em style="color:var(--muted);font-style:normal;font-weight:400">/</em> would <em style="color:var(--muted);font-style:normal;font-weight:400">/</em> be used to</span>
+    </div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="theme" aria-label="Switch theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path id="themeIcon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+    </button>
+  </header>
+
+  <h1>Past habits and familiar routines</h1>
+  <p class="lede">Four practice modes on <em>used to</em>, <em>would</em>, <em>be used to</em> and <em>get used to</em>: pick the form, spot the mistake, complete a connected story, and separate a finished habit from something that simply feels normal. Every answer comes with a short note on why a native speaker chooses that form.</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-mode="choose" aria-selected="true">1 · Which form?</button>
+    <button class="tab" role="tab" data-mode="judge" aria-selected="false">2 · Right or wrong</button>
+    <button class="tab" role="tab" data-mode="story" aria-selected="false">3 · The story</button>
+    <button class="tab" role="tab" data-mode="familiar" aria-selected="false">4 · Habit or familiarity?</button>
+  </div>
+
+  <div class="card" id="stage"></div>
+
+  <details class="theory">
+    <summary>Cheat sheet: how a native speaker decides</summary>
+    <div class="theory-grid">
+      <div class="tbox">
+        <h3>used to</h3>
+        <ul>
+          <li>Works with every verb — actions and states alike: <em>be, live, have, know, love</em>.</li>
+          <li>Needs no time marker: <em>I used to smoke</em> makes sense on its own.</li>
+          <li>Highlights the change: that was then, this is now.</li>
+          <li>Usually opens the story and sets the time frame.</li>
+        </ul>
+      </div>
+      <div class="tbox">
+        <h3>would</h3>
+        <ul>
+          <li>Dynamic actions only — things you could film happening.</li>
+          <li>Needs a time frame: <em>when I was a kid, every summer</em>. Without one it reads as a conditional.</li>
+          <li>Paints a picture and adds nostalgia.</li>
+          <li>Appears inside the story, once the frame is already set.</li>
+        </ul>
+      </div>
+      <div class="tbox">
+        <h3>be / get used to</h3>
+        <ul>
+          <li>Always followed by <em>-ing</em> or a noun: <em>used to driving</em>, never <em>used to drive</em>.</li>
+          <li><em>be used to</em> = it feels normal now: <em>I'm used to getting up at six</em>.</li>
+          <li><em>get used to</em> = the process of growing comfortable: <em>she soon got used to it</em>.</li>
+          <li>Works in any tense: <em>was used to, will get used to, have got used to</em>.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <footer>Classroom material · past habits: used to vs would</footer>
+</div>
+
+<script>
+// Question bank — "used to vs would" trainer
+// choose: which form is possible | judge: correct or not | story: fill the gap
+
+window.BANK = {
+  choose: [
+    {
+      s: "When I was younger, I ___ be as quiet as a mouse in every lesson.",
+      w: "as quiet as a mouse",
+      a: 0,
+      why: "Be is a state verb, and would never carries states. Only used to can describe what someone was like."
+    },
+    {
+      s: "Every time we argued, my sister ___ give me the cold shoulder for three days.",
+      w: "give someone the cold shoulder",
+      a: 1,
+      why: "Give someone the cold shoulder is a dynamic action and every time we argued sets the frame, so both forms work. Would sounds more like storytelling."
+    },
+    {
+      s: "My cousin ___ have one strange personality trait: he never said thank you.",
+      w: "personality trait",
+      a: 0,
+      why: "Have here means possess — a state. \"He would have a trait\" would be read as a conditional."
+    },
+    {
+      s: "I ___ whisper the answers to my friend. (no time context at all)",
+      w: "whisper",
+      a: 0,
+      why: "Whisper is an action, but would cannot stand alone. With no time marker the sentence reads as \"I'd be willing to whisper\"."
+    },
+    {
+      s: "Our old chemistry teacher ___ be as cool as a cucumber, even when an experiment went wrong.",
+      w: "as cool as a cucumber",
+      a: 0,
+      why: "Another state with be. A simile describing a person always needs used to."
+    },
+    {
+      s: "Whenever the teacher left the room, the boys ___ yell across the desks.",
+      w: "yell",
+      a: 1,
+      why: "Yell is dynamic and whenever the teacher left gives the frame, so both forms are natural."
+    },
+    {
+      s: "She ___ know every participant in the study by name.",
+      w: "participant",
+      a: 0,
+      why: "Know is a classic state verb — used to only."
+    },
+    {
+      s: "After each experiment, the researcher ___ write her findings in a little black notebook.",
+      w: "researcher / findings",
+      a: 1,
+      why: "Write is an action and after each experiment frames it. Would even adds a nice narrative feel."
+    },
+    {
+      s: "As a child, I ___ believe every prediction I read in the newspaper.",
+      w: "prediction",
+      a: 0,
+      why: "Believe is a mental state, so habitual would is impossible."
+    },
+    {
+      s: "During those long summers, we ___ run like the wind down to the lake.",
+      w: "run like the wind",
+      a: 1,
+      why: "Run is dynamic and during those long summers sets the scene — both forms fit."
+    },
+    {
+      s: "There ___ be a lot of gossip spreading about that family.",
+      w: "spread",
+      a: 0,
+      why: "There be is a state pattern. \"There would be gossip\" sounds like speculation about the future."
+    },
+    {
+      s: "Whenever I whined about bedtime, my mum ___ put her foot down.",
+      w: "whine / put your foot down",
+      a: 1,
+      why: "Put your foot down is an action with a clear repeated trigger, so used to and would both work."
+    },
+    {
+      s: "Back then, the whole street ___ be intrigued by the empty house on the corner.",
+      w: "intrigued",
+      a: 0,
+      why: "Be intrigued describes a state of mind, and would never carries states — used to only, even though back then looks like a time marker."
+    },
+    {
+      s: "Every time she wanted to get something off her chest, she ___ call me late at night.",
+      w: "get something off your chest",
+      a: 1,
+      why: "Call is a dynamic action and every time she wanted sets the frame, so both forms work. Would makes it sound like a memory being retold."
+    },
+    {
+      s: "My grandfather ___ own the flower shop opposite the hotel reception.",
+      w: "reception",
+      a: 0,
+      why: "Own means possess — a state, like have and belong. \"He would own a shop\" would be heard as a conditional."
+    },
+    {
+      s: "It felt strange in September, but now I ___ face to face with the whole team every morning.",
+      w: "face to face",
+      opts: ["used to work", "am used to working"],
+      a: 1,
+      why: "Now the situation feels normal, so we need be used to + -ing. Used to work would mean it happened in the past and has stopped."
+    },
+    {
+      s: "Our speaker was terrified at first, but after a few events she ___ in front of three hundred people.",
+      w: "speaker",
+      opts: ["got used to speaking", "used to speak"],
+      a: 0,
+      why: "After a few events describes a change of feeling — that is get used to + -ing. Used to speak would only report a finished past habit."
+    },
+    {
+      s: "My little brother ___ on my nerves every single day, but he's much calmer now.",
+      w: "get on someone's nerves",
+      opts: ["was used to getting", "used to get"],
+      a: 1,
+      why: "This is a past habit that has stopped: used to + infinitive. Was used to getting would mean he found it normal — a completely different idea."
+    }
+  ],
+
+  judge: [
+    { s: "I would be all ears whenever my sister had some gossip.", w: "be all ears", ok: false,
+      why: "Be all ears is built on be — a state. Correct: I used to be all ears whenever my sister had some gossip." },
+    { s: "When we were kids, my brother would pull my leg about everything.", w: "pull someone's leg", ok: true,
+      why: "When we were kids sets the frame and pull someone's leg is a repeated action. Textbook narrative would." },
+    { s: "I would have a psychologist as a neighbour.", w: "psychologist", ok: false,
+      why: "Have = possess, a state, and there is no time marker. Correct: I used to have a psychologist as a neighbour." },
+    { s: "Our old teacher used to be as brave as a lion when angry parents turned up.", w: "as brave as a lion", ok: true,
+      why: "Used to works with states as easily as with actions, and it needs no extra time marker." },
+    { s: "My sister would groan every time I asked her to lend me a hand.", w: "lend someone a hand", ok: true,
+      why: "Every time gives the frame and groan is dynamic — would is exactly right." },
+    { s: "He would know the difference between fantasy and reality.", w: "reality", ok: false,
+      why: "Know is a state verb. Correct: He used to know the difference between fantasy and reality." },
+    { s: "Every Friday the researchers would present their findings face to face.", w: "face to face", ok: true,
+      why: "Every Friday plus the action present — perfect storytelling would." },
+    { s: "I used to whine about my punishment for hours.", w: "punishment", ok: true,
+      why: "Used to also covers repeated actions, not just states. Nothing wrong here." },
+    { s: "My parents would be very strict about honesty.", w: "honesty", ok: false,
+      why: "Be is a state. Correct: My parents used to be very strict about honesty." },
+    { s: "Did you use to mutter in your sleep?", w: "mutter", ok: true,
+      why: "After did the base form use to is required — no -d. This is correct." },
+    { s: "I didn't used to take the initiative in group work.", w: "take the initiative", ok: false,
+      why: "After didn't the verb goes back to its base form. Correct: I didn't use to take the initiative in group work." },
+    { s: "When we were at primary school, we would gasp every time the teacher did a card trick.", w: "gasp / trick", ok: true,
+      why: "When we were at primary school frames the period and gasp is a dynamic reaction — would fits perfectly." },
+    { s: "Our old car would be as solid as a rock, even on icy roads.", w: "as solid as a rock", ok: false,
+      why: "Be describes what the car was like — a state. Correct: Our old car used to be as solid as a rock, even on icy roads." },
+    { s: "I'm used to get up at six, so early lessons don't bother me.", w: "—", ok: false,
+      why: "After be used to the verb takes -ing. Correct: I'm used to getting up at six, so early lessons don't bother me." },
+    { s: "It took him a month to get used to being as busy as a bee at his new job.", w: "as busy as a bee", ok: true,
+      why: "Get used to + -ing describes the process of adapting, and being is the right form after to. Nothing to fix." },
+    { s: "When I was a student, I was used to stay up all night before an exam.", w: "—", ok: false,
+      why: "The meaning here is a past habit that has stopped, so: When I was a student, I used to stay up all night. If you keep was used to, it needs -ing: was used to staying up." }
+  ],
+
+  story: [
+    {
+      before: "My older sister and I ",
+      after: " be at each other's throats almost every day.",
+      a: "used to",
+      w: "be at each other's throats",
+      why: "The opening line sets the frame for the whole story, and be is a state — used to on both counts.",
+      hint: "opening the story, verb be"
+    },
+    {
+      before: "She ",
+      after: " have a thick diary with a tiny gold lock on it.",
+      a: "used to",
+      w: "—",
+      why: "Have = possess, a state. Would is impossible here.",
+      hint: "possession"
+    },
+    {
+      before: "I ",
+      after: " know exactly where she hid the key, but I never said a word about it.",
+      a: "used to",
+      w: "—",
+      why: "Know is a state verb, so would is impossible — and used to also signals that this is no longer true.",
+      hint: "knowledge is a state"
+    },
+    {
+      before: "Every afternoon she ",
+      after: " whisper her secrets into it and hide it under the mattress.",
+      a: "would",
+      w: "whisper",
+      why: "The frame is already set and we are painting a repeated scene — would is the natural choice.",
+      hint: "frame is set, now paint the scene"
+    },
+    {
+      before: "The moment I came in, she ",
+      after: " shriek and slam it shut.",
+      a: "would",
+      w: "shriek",
+      why: "Same scene, another dynamic action — narrative would continues.",
+      hint: "action inside the scene"
+    },
+    {
+      before: "If I asked what was inside, she ",
+      after: " just mutter something and give me the cold shoulder for the rest of the day.",
+      a: "would",
+      w: "mutter / give someone the cold shoulder",
+      why: "If I asked describes a repeated trigger, and mutter and give the cold shoulder are actions — would keeps the scene running.",
+      hint: "repeated trigger, dynamic verbs"
+    },
+    {
+      before: "She, on the other hand, ",
+      after: " keeping things to herself — it was simply how she was.",
+      a: "was used to",
+      opts: ["used to", "was used to"],
+      w: "—",
+      why: "Here the point is not a habit that stopped but a situation that felt normal to her: was used to + -ing.",
+      hint: "it felt normal to her"
+    },
+    {
+      before: "Honestly, I ",
+      after: " think she was hiding something enormous.",
+      a: "used to",
+      w: "—",
+      why: "Think here is a mental state, so only used to works.",
+      hint: "a state of mind"
+    },
+    {
+      before: "Back then that diary ",
+      after: " seem as important as a state secret; now it seems like nothing at all.",
+      a: "used to",
+      w: "—",
+      why: "Seem is a state verb, and the second half spells out the contrast between then and now — the core job of used to.",
+      hint: "state verb, then versus now"
+    },
+    {
+      before: "By the end of that year I ",
+      after: " being shut out, and I stopped asking questions altogether.",
+      a: "had got used to",
+      opts: ["had got used to", "used to"],
+      w: "—",
+      why: "By the end of that year marks the moment the feeling changed — get used to + -ing describes exactly that process.",
+      hint: "the moment it stopped bothering me"
+    },
+    {
+      before: "Years later we ",
+      after: " sit on the stairs for hours and talk everything through face to face.",
+      a: "would",
+      w: "face to face",
+      why: "Years later frames the period and sit and talk are actions — would again.",
+      hint: "time marker plus actions"
+    },
+    {
+      before: "These days I ",
+      after: " hearing her secrets first, and I'd hate it if that ever changed.",
+      a: "am used to",
+      opts: ["am used to", "used to"],
+      w: "—",
+      why: "These days points at the present, and the idea is that it feels normal now — be used to + -ing.",
+      hint: "present, and it feels normal"
+    }
+  ],
+
+  familiar: [
+    {
+      s: "When I was at primary school, I ___ as quiet as a mouse in every single lesson.",
+      w: "as quiet as a mouse",
+      opts: ["am used to being", "used to be", "got used to being"],
+      a: 1,
+      why: "A past habit that has stopped — used to + infinitive. The other two would say that being quiet felt normal, which is not the point here."
+    },
+    {
+      s: "It's my third year in the city, so I ___ to the noise of the traffic outside my window.",
+      w: "—",
+      opts: ["used to wake up", "got used to waking up", "am used to waking up"],
+      a: 2,
+      why: "The situation is still true and it feels normal now: be used to + -ing. Got used to would put the focus on the moment it changed."
+    },
+    {
+      s: "The first week was awful, but I soon ___ in a partnership with someone I'd never met.",
+      w: "partnership",
+      opts: ["got used to working", "used to work", "am used to working"],
+      a: 0,
+      why: "Soon marks the process of adapting — get used to + -ing. Used to work would just report a finished habit."
+    },
+    {
+      s: "My grandfather ___ me the same card trick every Christmas, but he gave it up when his hands started shaking.",
+      w: "trick",
+      opts: ["is used to showing", "got used to showing", "used to show"],
+      a: 2,
+      why: "But he gave it up tells you it is over: used to + infinitive for a past habit that has finished."
+    },
+    {
+      s: "Nurses ___ people gasp at the sight of the needle — it happens twenty times a day.",
+      w: "gasp",
+      opts: ["used to see", "are used to seeing", "got used to seeing"],
+      a: 1,
+      why: "A present, permanent situation that feels normal: be used to + -ing. Used to see would mean they no longer see it."
+    },
+    {
+      s: "At first I hated the early starts, but after a few weeks I ___ up at five.",
+      w: "—",
+      opts: ["got used to getting", "am used to getting", "used to get"],
+      a: 0,
+      why: "At first ... but after a few weeks describes a change of feeling — that is exactly what get used to + -ing is for."
+    },
+    {
+      s: "My parents ___ at each other's throats about money, but they sorted everything out years ago.",
+      w: "be at each other's throats",
+      opts: ["are used to being", "got used to being", "used to be"],
+      a: 2,
+      why: "They sorted it out years ago closes the story: used to + infinitive for a finished past situation."
+    },
+    {
+      s: "He's been a teacher for thirty years, so he ___ children whine about homework.",
+      w: "whine",
+      opts: ["used to hear", "is used to hearing", "got used to hearing"],
+      a: 1,
+      why: "For thirty years and still teaching — the noise feels normal to him: be used to + -ing."
+    },
+    {
+      s: "The new students found the silence strange, but by December they ___ in it without any music.",
+      w: "—",
+      opts: ["had got used to working", "used to work", "are used to working"],
+      a: 0,
+      why: "By December pins down the moment the strangeness wore off — get used to + -ing, here in the past perfect."
+    },
+    {
+      s: "Before the internet, people ___ long letters to friends abroad.",
+      w: "—",
+      opts: ["are used to writing", "used to write", "got used to writing"],
+      a: 1,
+      why: "Before the internet marks a habit that belongs to the past and has stopped: used to + infinitive."
+    },
+    {
+      s: "I've shared a room with my brother all my life, so I ___ him mutter in his sleep.",
+      w: "mutter",
+      opts: ["got used to hearing", "used to hear", "am used to hearing"],
+      a: 2,
+      why: "All my life and still true — the muttering feels completely normal: be used to + -ing."
+    },
+    {
+      s: "Honest feedback was a shock at first, but the team quickly ___ constructively.",
+      w: "constructively",
+      opts: ["got used to talking", "used to talk", "is used to talking"],
+      a: 0,
+      why: "At first ... quickly signals the adaptation itself, so get used to + -ing is the natural choice."
+    }
+  ]
+};
+
+</script>
+<script>
+(function(){
+  var html=document.documentElement;
+  if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) html.dataset.theme='dark';
+  document.getElementById('theme').addEventListener('click',function(){
+    html.dataset.theme = html.dataset.theme==='dark' ? 'light' : 'dark';
+  });
+
+  var stage=document.getElementById('stage');
+  var mode='choose', i=0, right=0, streak=0, best=0, answered=false, order=[];
+
+  function shuffle(n){var a=[];for(var k=0;k<n;k++)a.push(k);
+    for(var j=a.length-1;j>0;j--){var r=Math.floor(Math.random()*(j+1));var t=a[j];a[j]=a[r];a[r]=t;}return a;}
+
+  function list(){return BANK[mode];}
+  function start(m){mode=m;i=0;right=0;streak=0;best=0;answered=false;
+    order = mode==='story' ? shuffle(list().length).sort(function(a,b){return a-b;}) : shuffle(list().length);
+    render();}
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+  function head(){
+    var total=list().length;
+    return '<div class="meta"><span>'+(i+1)+' / '+total+'</span>'+
+      '<div class="bar"><i style="width:'+(i/total*100)+'%"></i></div>'+
+      '<span>streak '+streak+'</span></div>';
+  }
+
+  function scoreRow(){
+    return '<div class="score"><div>correct<b>'+right+'</b></div>'+
+      '<div>answered<b>'+i+'</b></div>'+
+      '<div>best streak<b>'+best+'</b></div></div>';
+  }
+
+  function chip(q){
+    return (q.w && q.w!=='—') ? '<div class="chip">'+esc(q.w)+'</div>' : '';
+  }
+
+  function render(){
+    if(i>=list().length){return finish();}
+    answered=false;
+    var q=list()[order[i]];
+    var h=head();
+
+    if(mode==='choose'){
+      h+=chip(q);
+      h+='<p class="sentence">'+esc(q.s).replace('___','<span class="blank" id="gap">___</span>')+'</p>';
+      var co = q.opts ? [esc(q.opts[0]),esc(q.opts[1])] : ['Only <i>used to</i> works','Both forms work'];
+      h+='<div class="opts">'+
+         '<button class="opt" data-n="0"><span class="k">1</span>'+co[0]+'</button>'+
+         '<button class="opt" data-n="1"><span class="k">2</span>'+co[1]+'</button></div>';
+    } else if(mode==='familiar'){
+      h+=chip(q);
+      h+='<p class="sentence">'+esc(q.s).replace('___','<span class="blank" id="gap">___</span>')+'</p>';
+      h+='<div class="opts">'+q.opts.map(function(o,n){
+           return '<button class="opt" data-n="'+n+'"><span class="k">'+(n+1)+'</span>'+esc(o)+'</button>';
+         }).join('')+'</div>';
+    } else if(mode==='judge'){
+      h+=chip(q);
+      h+='<p class="sentence">“'+esc(q.s)+'”</p>';
+      h+='<div class="opts">'+
+         '<button class="opt" data-n="1"><span class="k">1</span>Correct English</button>'+
+         '<button class="opt" data-n="0"><span class="k">2</span>There is a mistake</button></div>';
+    } else {
+      h+=chip(q);
+      h+='<p class="sentence">'+esc(q.before)+'<span class="blank" id="gap">___</span>'+esc(q.after)+'</p>';
+      h+='<p class="hintline">Hint: '+esc(q.hint)+'</p>';
+      h+='<div class="opts">'+(q.opts||['used to','would']).map(function(o,n){
+           return '<button class="opt" data-n="'+esc(o)+'"><span class="k">'+(n+1)+'</span>'+esc(o)+'</button>';
+         }).join('')+'</div>';
+    }
+    h+='<div id="fb"></div>'+scoreRow();
+    stage.innerHTML=h;
+    Array.prototype.forEach.call(stage.querySelectorAll('.opt'),function(b){
+      b.addEventListener('click',function(){answer(b.dataset.n,b);});
+    });
+  }
+
+  function answer(val,btn){
+    if(answered)return; answered=true;
+    var q=list()[order[i]], ok;
+    if(mode==='choose'||mode==='familiar') ok = Number(val)===q.a;
+    else if(mode==='judge') ok = (val==='1')===q.ok;
+    else ok = val===q.a;
+
+    if(ok){right++;streak++;if(streak>best)best=streak;} else {streak=0;}
+
+    var btns=stage.querySelectorAll('.opt');
+    Array.prototype.forEach.call(btns,function(b){
+      b.disabled=true;
+      var isCorrect;
+      if(mode==='choose'||mode==='familiar') isCorrect = Number(b.dataset.n)===q.a;
+      else if(mode==='judge') isCorrect = (b.dataset.n==='1')===q.ok;
+      else isCorrect = b.dataset.n===q.a;
+      if(isCorrect) b.classList.add('right');
+      else if(b===btn) b.classList.add('wrong');
+    });
+
+    var gap=document.getElementById('gap');
+    if(gap){
+      if(mode==='story'){gap.textContent=q.a;gap.classList.add('filled');}
+      else if(q.opts){gap.textContent=q.opts[q.a];gap.classList.add('filled');}
+    }
+
+    document.getElementById('fb').innerHTML =
+      '<div class="feedback '+(ok?'ok':'no')+'"><b>'+(ok?'Correct':'Not quite')+'</b>'+esc(q.why)+'</div>'+
+      '<div class="row"><button class="primary" id="next">'+
+      (i===list().length-1?'See results':'Next')+'</button>'+
+      '<button class="ghost" id="restart">Start over</button></div>';
+
+    document.getElementById('next').addEventListener('click',function(){i++;render();});
+    document.getElementById('restart').addEventListener('click',function(){start(mode);});
+    document.getElementById('next').focus();
+  }
+
+  function finish(){
+    var total=list().length, pct=Math.round(right/total*100);
+    var msg = pct===100 ? 'Flawless. Ready to show the class as a model set.'
+            : pct>=75 ? 'Solid work — the core rules are already automatic.'
+            : pct>=50 ? 'The basics are there. Re-read the cheat sheet on state verbs and time frames.'
+            : 'Open the cheat sheet below and run the set again — it all comes down to four points.';
+    stage.innerHTML='<div class="result"><p class="big">'+right+' / '+total+' · '+pct+'%</p>'+
+      '<p>'+msg+'</p>'+
+      '<div class="row" style="justify-content:center">'+
+      '<button class="primary" id="again">Try again</button>'+
+      '<button class="ghost" id="nextmode">Next mode</button></div></div>';
+    document.getElementById('again').addEventListener('click',function(){start(mode);});
+    document.getElementById('nextmode').addEventListener('click',function(){
+      var ms=['choose','judge','story','familiar'], nx=ms[(ms.indexOf(mode)+1)%ms.length];
+      setTab(nx); start(nx);
+    });
+  }
+
+  function setTab(m){
+    Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){
+      t.setAttribute('aria-selected', t.dataset.mode===m ? 'true':'false');
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){
+    t.addEventListener('click',function(){setTab(t.dataset.mode);start(t.dataset.mode);});
+  });
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='1'||e.key==='2'||e.key==='3'){
+      var b=stage.querySelectorAll('.opt')[Number(e.key)-1];
+      if(b && !b.disabled) b.click();
+    } else if(e.key==='Enter'){
+      var n=document.getElementById('next'); if(n) n.click();
+    }
+  });
+
+  start('choose');
+})();
+</script>
+</body>
+</html>
