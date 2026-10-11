@@ -606,7 +606,7 @@ window.BANK = {
     if(mode==='choose'){
       h+=chip(q);
       h+='<p class="sentence">'+esc(q.s).replace('___','<span class="blank" id="gap">___</span>')+'</p>';
-      var co = q.opts ? [esc(q.opts[0]),esc(q.opts[1])] : ['Only <i>used to</i> works','Both forms work'];
+      var co = q.opts ? [esc(q.opts[0]),esc(q.opts[1])] : ['“used to” monopoly','Double trouble (Both!)'];
       h+='<div class="opts">'+
          '<button class="opt" data-n="0"><span class="k">1</span>'+co[0]+'</button>'+
          '<button class="opt" data-n="1"><span class="k">2</span>'+co[1]+'</button></div>';
@@ -620,8 +620,8 @@ window.BANK = {
       h+=chip(q);
       h+='<p class="sentence">“'+esc(q.s)+'”</p>';
       h+='<div class="opts">'+
-         '<button class="opt" data-n="1"><span class="k">1</span>Correct English</button>'+
-         '<button class="opt" data-n="0"><span class="k">2</span>There is a mistake</button></div>';
+         '<button class="opt" data-n="1"><span class="k">1</span>Music to my eyes</button>'+
+         '<button class="opt" data-n="0"><span class="k">2</span>My eyes are bleeding</button></div>';
     } else {
       h+=chip(q);
       h+='<p class="sentence">'+esc(q.before)+'<span class="blank" id="gap">___</span>'+esc(q.after)+'</p>';
